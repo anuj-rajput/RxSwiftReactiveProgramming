@@ -6,7 +6,7 @@ An Observable is just a sequence, it is __asynchronous__. Observables produce ev
 
 Best ways to conceptualize this is by using marble diagrams, which are just values plotted on a timeline.
 
-![](https://assets.alexandria.raywenderlich.com/books/rxs/images/c1161239a67d91b694c2ef4cf9f746b75a8ac5f29e8c540207b89f5792944988/original.png)
+![Marbles](https://assets.alexandria.raywenderlich.com/books/rxs/images/c1161239a67d91b694c2ef4cf9f746b75a8ac5f29e8c540207b89f5792944988/original.png)
 
 Left-to-right arrow represents time, and the numbered circles represent elements of a sequence.
 
@@ -15,7 +15,7 @@ When an observable emits an element, it does so in what’s known as a next even
 
 Sometimes things can go wrong.
 
-![](https://assets.alexandria.raywenderlich.com/books/rxs/images/13887a1c8922fcc3bb2914d01aa5ed5ff38157ee44aed97ea89fd15389a648fd/original.png)
+![LTR](https://assets.alexandria.raywenderlich.com/books/rxs/images/13887a1c8922fcc3bb2914d01aa5ed5ff38157ee44aed97ea89fd15389a648fd/original.png)
 
 An error occurred in this marble diagram, represented by the red X. The observable emitted an error event containing the __error__. This is the same as when an observable terminates normally with a __completed__ event. If an observable emits an __error__ event, it is also terminated and can no longer emit anything else.
 
