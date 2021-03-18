@@ -1,0 +1,31 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild build -scheme RxSwift -workspace RxSwiftPlayground.xcworkspace -sdk iphonesimulator -destination "name=iPhone 8"
+
+Build settings from command line:
+    SDKROOT = iphonesimulator14.4
+
+xcodebuild: error: Unable to find a destination matching the provided destination specifier:
+		{ name:iPhone 8 }
+
+	Unsupported device specifier option.
+	The device “My Mac” does not support the following options: name
+	Please supply only supported device specifier options.
+
+	Available destinations for the "RxSwift" scheme:
+		{ platform:macOS, arch:x86_64, id:423F5BF5-61C2-52B8-90C5-365C4DD38AF2 }
+		{ platform:watchOS Simulator, id:1B1D213B-7E7E-497E-8763-A9BB9AD052E1, OS:7.2, name:Apple Watch Series 5 - 40mm }
+		{ platform:watchOS Simulator, id:3F800649-1E4E-496D-8170-09533448B0DD, OS:7.2, name:Apple Watch Series 5 - 44mm }
+		{ platform:watchOS Simulator, id:B3FCF74B-2A1B-4EE1-B992-798D8A790E44, OS:7.2, name:Apple Watch Series 6 - 44mm }
+		{ platform:iOS Simulator, id:BC50F710-D709-4364-B439-21B3261F7110, OS:14.4, name:iPhone 12 }
+		{ platform:iOS Simulator, id:40C72C19-A63D-4498-B438-D2D086E9D6DB, OS:14.4, name:iPhone 12 Pro Max }
+		{ platform:iOS Simulator, id:F676C384-6FB7-447E-9FC5-F7ABCA037707, OS:14.4, name:iPhone 12 mini }
+		{ platform:iOS Simulator, id:36A4C2CD-818E-440A-BE0E-85574332DA40, OS:14.4, name:iPhone SE (2nd generation) }
+
+	Ineligible destinations for the "RxSwift" scheme:
+		{ platform:iOS, id:dvtdevice-DVTiPhonePlaceholder-iphoneos:placeholder, name:Any iOS Device }
+		{ platform:iOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder, name:Any iOS Simulator Device }
+		{ platform:macOS, name:Any Mac }
+		{ platform:tvOS, id:dvtdevice-DVTiOSDevicePlaceholder-appletvos:placeholder, name:Any tvOS Device }
+		{ platform:tvOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-appletvsimulator:placeholder, name:Any tvOS Simulator Device }
+		{ platform:watchOS, id:dvtdevice-DVTiOSDevicePlaceholder-watchos:placeholder, name:Any watchOS Device }
+		{ platform:watchOS Simulator, id:dvtdevice-DVTiOSDeviceSimulatorPlaceholder-watchsimulator:placeholder, name:Any watchOS Simulator Device }
