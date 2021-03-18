@@ -43,3 +43,85 @@ for number in array {
 print(array)
 ```
 ### Asynchronous code
+Consider similar code, but assume each iteration happens as a reaction to a tap on a button.
+
+```swift
+var array = [1, 2, 3]
+var currentIndex = 0
+
+@IBAction private func printNext() {
+    print(array[currentIndex])
+    
+    if currentIndex != array.count - 1 {
+        currentIndex += 1
+    }
+}
+```
+Think about this code in the same context as you did for the previous one. As the user taps the button, will that print all of the array’s elements? You really can’t say. Another piece of asynchronous code might remove the last element, before it’s been printed.
+Or another piece of code might insert a new element at the start of the collection after you’ve moved on.
+Also, you assume `currentIndex` is only mutated by `printNext()`, but another piece of code might modify `currentIndex` as well — perhaps some clever code you added at some point after crafting the above method.
+You’ve likely realized that some of the core issues with writing asynchronous code are: a) the order in which pieces of work are performed and b) shared mutable data.
+
+## Asynchronous programming glossary
+1. State, and specifically, shared mutable state
+2. Imperative programing
+3. Side effects
+4. Declerative code
+5. Reactive systems
+
+## Foundation of RxSwift
+### Observables
+#### Finite observable sequences
+```swift
+API.download(file: "http://www...")
+    .subscribe(
+        onNext: { data in
+            // Append data to temporary file
+        },
+        onError: { error in
+            // Display error to user
+        },
+        onCompleted: {
+            // Use downloaded file
+        }
+    )
+```
+
+#### Infinite observable sequences
+```swift
+UIDevice.rx.orientation
+    .subscribe(onNext: { current in 
+        switch current {
+            case .landscape:
+                // Re-arrange UI for landscape
+            case .portrait:
+                // Re-arrange UI for portrait
+        }
+    })
+```
+
+### Operators
+```swift
+UIDevice.rx.orientation
+    .filter { $0 != .landscape }
+    .map { _ in "Portrait is the best!" }
+    .subscribe(onNext: { string in 
+        showAlert(text: string)
+    })
+```
+
+### Schedulers
+
+## App architecture
+
+## RxCocoa
+```swift
+toggleSwitch.rx.isOn
+    .subscribe(onNext: { isOn in
+        print(isOn ? "It's ON" : "It's OFF")
+    })
+```
+
+## Installing RxSwift
+
+## RxSwift and Combine
